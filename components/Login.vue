@@ -1,17 +1,16 @@
 <template>
-    <div class="d-flex flex-grow-1 cyan lighten-5" style="border: solid">
+    <div class="d-flex flex-grow-1 accent">
         <v-container fill-height class="d-flex flex-column align-center justify-center">
             <div class="col-12 d-flex flex-column justify-center align-center">
                 <v-card class="col-12 col-md-4 d-flex flex-column rounded-lg elevation-3 pa-8">
-                    <div class="d-flex flex-column">
-                        <div class="d-flex flex-column justify-center align-center text-h4">
-                            <div>
-                                <span class="font-weight-black cyan--text ml-2">i</span>
-                                <span class="font-weight-light cyan--text">- PUSTANDA</span>
-                            </div>
+                    <div class="d-flex flex-column justify-center align-center">
+                        <v-img max-width="50" contain src="/logo.svg" ></v-img>
+                        <div class="d-flex flex-row justify-center align-center text-h4 mt-2">
+                            <span class="font-weight-black primary--text ml-2">i</span><span class="mx-2 grey--text">-</span>
+                            <span class="font-weight-light cyan--text tw-tracking-widest">PUSTANDA</span>
                         </div>
                         <div class="d-flex justify-center mt-1">
-                            <span class="text-caption grey--text  font-weight-light">Selamat datang di aplikasi Inventori PUSTANDA.</span>
+                            <span class="text-caption grey--text  font-weight-light">Selamat datang di aplikasi Inventori i - PUSTANDA.</span>
                         </div>
                     </div>
                     <v-divider class="my-3 mb-5"></v-divider>
@@ -29,6 +28,7 @@
                             :rules="usernameRules"
                             type="text"
                             outlined
+                            color="cyan"
                             dense
                             required
                             class="pa-0 ma-0"
@@ -42,6 +42,7 @@
                             :rules="passwordRules"
                             :type="passwordShow ? 'text' : 'password'"
                             outlined
+                            color="cyan"
                             dense
                             required
                             @click:append="passwordShow = !passwordShow"
@@ -50,11 +51,11 @@
                     </v-form>
                     <v-divider class="mb-5"></v-divider>
                     <div class="d-flex">
-                        <v-btn :loading="loading" block color="cyan" class="white--text" @click="submit()">Masuk</v-btn>
+                        <v-btn :loading="loading" block color="primary" class="white--text rounded-lg" @click="submit()">Masuk</v-btn>
                     </div>
                 </v-card>
                 <div class="mt-5">
-                    <span class="text-caption text-center font-weight-light grey--text text-capitalize">Pusat penguatan dan pemberdayaan bahasa. CopyRight @ {{ (new Date()).getFullYear() }}</span>
+                    <span class="text-caption text-center font-weight-light grey--text text-capitalize">Pusat penguatan dan pemberdayaan bahasa @ {{ (new Date()).getFullYear() }}</span>
                 </div>
             </div>
         </v-container>

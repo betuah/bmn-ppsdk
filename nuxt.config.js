@@ -18,6 +18,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/main.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -29,8 +30,8 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxt/postcss8',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -47,9 +48,8 @@ export default {
   },
 
   proxy: {
-    '/api/': { target: `${process.env.API_URL}`, pathRewrite: {'^/api/': '/api/v1/'}, changeOrigin: true },
+    '/api/': { target: `${process.env.API_URL || 'localhost'}`, pathRewrite: {'^/api/': '/api/v1/'}, changeOrigin: true },
   },
-
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
@@ -72,6 +72,15 @@ export default {
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3
+        },
+        light: {
+          primary: '#FF7B54',
+          accent: '#FAF8F6',
+          secondary: '#FB8574',
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3
         }
       },
     }, defaultAssets: {
@@ -84,5 +93,11 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    postcss: {
+      plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+      },
+    },
   }
 }
